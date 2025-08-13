@@ -6,16 +6,16 @@ import configparser
 
 lineSeperator = "-" * shutil.get_terminal_size().columns
 
-def printCheatDocList():
+def printCheatDocList(docsPath):
     parser = configparser.ConfigParser()
     cheats = []
 
     # Get all files in cheat docs dir
-    for c in os.listdir(os.getcwd() + "/docs"):
+    for c in os.listdir(docsPath):
         # Skip "non ini files"
         if not c.endswith(".ini"): continue
 
-        parser.read(os.getcwd() + "/docs/" + c)
+        parser.read(docsPath + c)
         
         cheat = {
             "name": parser.get("cheat", "name"),

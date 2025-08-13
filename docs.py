@@ -15,11 +15,11 @@ def main():
     # Print available cheat docs
     if args.list:
         argparser.print_help()
-        parser.printCheatDocList()
+        parser.printCheatDocList(os.path.dirname(os.path.abspath(__file__)) + "/docs/")
         exit(0)            
 
     # Validate if requested cheat is available
-    cheatDocPath = os.getcwd() + "/docs/" + args.cheatdoc + ".ini"
+    cheatDocPath = os.path.dirname(os.path.abspath(__file__)) + "/docs/" + args.cheatdoc + ".ini"
     if not os.path.isfile(cheatDocPath):
         print("Cheat for '" + args.cheatdoc + "' not found. Cheat doc file does not exist")
         exit(1)
