@@ -4,7 +4,7 @@ Simple command-line tool to print cheatsheets.
 
 Requires Python3.
 
-## Installatiom
+## Installation
 
 Clone the repository into your home:
 ```shell
@@ -33,3 +33,4 @@ You can add custom cheat docs by creating a new <cheat>.ini inside the docs fold
 Please ensure to have the `cheat` section as well (This is used to print the meta information in `--list` and the cheatdoc itself)
 
 ## License
+MIT License - Copyright (c) 2025 Tobias Bauriedel
