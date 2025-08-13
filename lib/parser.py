@@ -31,29 +31,35 @@ def printCheatDocList(docsPath):
     return
 
 def parseAndPrintIniDoc(docPath=str):
-    parser = configparser.ConfigParser()
+    parser = configparser.ConfigParser(interpolation=None)
 
     # Read ini file
     parser.read(docPath)
 
-    # Print "about"
+    # Remove the 'internal' cheat section from the list
     sections = parser.sections()
     sections.remove("cheat")
 
-    about = f"""{lineSeperator}
+    # Get text setting if exists
+    general = ""
+    if parser.has_option("cheat", "text"):
+        general = f"Free text:\n\t{parser.get('cheat', 'text').encode('utf-8').decode('unicode_escape').replace('\n', '\n\t')}\n"
+
+    # Build and print header
+    header = f"""{lineSeperator}
 Cheat: {parser.get("cheat", "name")}
 Description: {parser.get("cheat", "description")}
 Sections: {sections}
 Source: {docPath}
-{lineSeperator}"""
+{general}{lineSeperator}"""
     
-    print(about)
+    print(header)
 
     # Print contect
     for section in parser.sections():
         if section == "cheat": continue
         print(f"\n[{section}]")
         for key, value in parser.items(section):
-            print(f"{key} => {value}")
+            print(f"{key} => {value.replace("\=", "=").replace("\%", "%")}")
     
     return
