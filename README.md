@@ -5,6 +5,9 @@ Requires Python3.
 
 The available cheats (and thus a list of them) can be viewed [here](docs/).
 
+## Acknowledgments
+This cheatsheet is insipred by the one created by [martialblog](https://github.com/martialblog/cheatsheet).
+
 ## Installation
 
 Clone the repository into your home:
