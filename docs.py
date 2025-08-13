@@ -14,8 +14,8 @@ def main():
 
     # Print available cheat docs
     if args.list:
-        parser.printCheatDocList()
         argparser.print_help()
+        parser.printCheatDocList()
         exit(0)            
 
     # Validate if requested cheat is available

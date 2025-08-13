@@ -26,7 +26,7 @@ def printCheatDocList():
 
     cheatsStr = "".join(f"{c['name']}\t=> {c['description']}\n" for c in cheats)
 
-    print(f"List of available cheat docs:\n\n{cheatsStr}{lineSeperator}")
+    print(f"{lineSeperator}\nList of available cheat docs:\n\n{cheatsStr}")
 
     return
 
